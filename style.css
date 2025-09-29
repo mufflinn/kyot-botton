@@ -1,145 +1,98 @@
-@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Button Demo</title>
 
-:root {
-	--background-color: #fafafa;
-	--color-gray-100: #f5f5f5;
-	--color-gray-200: #eaeaea;
-	--color-gray-300: #cecece;
-	--color-light: white;
-	--color-pink-100: #d85889;
-	--color-pink-200: #d02d6b;
-}
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">
 
-* {
-	-webkit-tap-highlight-color: transparent;
-	tap-highlight-color: transparent;
-	-webkit-touch-callout: none;
-}
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
+  <style>
+    :root {
+      --background-color: #fafafa;
+      --color-gray-100: #f5f5f5;
+      --color-gray-200: #eaeaea;
+      --color-gray-300: #cecece;
+      --color-light: white;
+      --color-pink-100: #d85889;
+      --color-pink-200: #d02d6b;
+    }
 
-html {
-	font-size: 16px;
-	font-family: "Cal Sans", sans-serif;
-	font-optical-sizing: auto;
-}
+    html {
+      font-size: 16px;
+      font-family: "Cal Sans", sans-serif;
+    }
 
-body {
-	width: 100vw;
-	height: 100vh;
-	height: 100dvh;
-	padding: 2rem;
-	text-align: center;
-	background-color: var(--background-color);
-	justify-content: center;
-	align-items: center;
-	flex-flow: column nowrap;
-	row-gap: 2rem;
-	display: flex;
-	overflow: hidden;
-}
+    body {
+      width: 100vw;
+      height: 200vh; /* make page scrollable for ScrollTrigger */
+      padding: 2rem;
+      text-align: center;
+      background-color: var(--background-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column nowrap;
+      row-gap: 2rem;
+    }
 
-.wrapper {
-	position: relative;
-	width: 140px;
-	aspect-ratio: 1/1;
-	border-radius: 16px;
-	background-color: var(--color-gray-200);
-	box-shadow: inset 0 0 16px var(--color-gray-300);
-	justify-content: center;
-	align-items: center;
-	flex-wrap: nowrap;
-	display: flex;
-}
+    .wrapper {
+      position: relative;
+      width: 140px;
+      aspect-ratio: 1/1;
+      border-radius: 16px;
+      background-color: var(--color-gray-200);
+      box-shadow: inset 0 0 16px var(--color-gray-300);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.button {
-	position: relative;
-	width: 120px;
-	aspect-ratio: 1/1;
-	margin: 0;
-	border: 2px solid var(--color-gray-300);
-	border-radius: 8px;
-	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
-	background-image: conic-gradient(
-		var(--color-gray-100) 45deg,
-		var(--color-gray-200) 45deg,
-		var(--color-gray-100) 90deg,
-		var(--color-gray-200) 135deg,
-		var(--color-gray-100) 135deg,
-		var(--color-gray-300) 135deg,
-		var(--color-gray-300) 225deg,
-		var(--color-gray-200) 225deg,
-		var(--color-gray-200) 315deg,
-		var(--color-gray-100) 315deg
-	);
-	transform-origin: 50% 50%;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: nowrap;
-	display: flex;
-	cursor: pointer;
+    .button {
+      position: relative;
+      width: 120px;
+      aspect-ratio: 1/1;
+      border: 2px solid var(--color-gray-300);
+      border-radius: 8px;
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      background-image: conic-gradient(
+        var(--color-gray-100) 45deg,
+        var(--color-gray-200) 45deg,
+        var(--color-gray-100) 90deg,
+        var(--color-gray-200) 135deg,
+        var(--color-gray-100) 135deg,
+        var(--color-gray-300) 135deg,
+        var(--color-gray-300) 225deg,
+        var(--color-gray-200) 225deg,
+        var(--color-gray-200) 315deg,
+        var(--color-gray-100) 315deg
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
 
-	&:active {
-		transform: scale(0.9);
-		box-shadow: 0 0 4px 2px var(--color-light);
-	}
+    .button.heart::before {
+      content: "\f004"; /* Font Awesome heart */
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      font-size: 60px;
+      color: var(--color-pink-100);
+    }
 
-	&:active::after {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		transform: translate(-50% -50%);
-		width: 100%;
-		height: 100%;
-		background-image: linear-gradient(
-			var(--color-gray-200),
-			var(--color-light),
-			var(--color-gray-300)
-		);
-		mix-blend-mode: multiply;
-		opacity: 0.5;
-	}
-
-	&::before {
-		position: absolute;
-		width: 82%;
-		aspect-ratio: 1/1;
-		border-radius: 4px;
-		background-image: linear-gradient(
-			var(--color-gray-100),
-			var(--color-gray-200)
-		);
-		font-size: 60px;
-		box-shadow: inset -4px 4px 4px var(--color-light);
-		justify-content: center;
-		align-items: center;
-		flex-flow: nowrap;
-		display: flex;
-	}
-
-	&:active::before {
-		box-shadow: inset -4px -4px 4px var(--color-light);
-		background-image: linear-gradient(
-			var(--color-gray-200),
-			var(--color-gray-100)
-		);
-	}
-
-	&.heart::before {
-		content: "\f004";
-		color: var(--color-pink-100);
-	}
-}
-
-.title {
-	margin: 0;
-	color: var(--color-pink-100);
-	font-size: clamp(4rem, 20vw, 10rem);
-	z-index: 200;
-}
+    .title {
+      margin: 0;
+      color: var(--color-pink-100);
+      font-size: clamp(4rem, 20vw, 10rem);
+      z-index: 200;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">Demo</
