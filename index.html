@@ -1,30 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Button + GSAP</title>
+  <meta charset="UTF-8" />
+  <title>Capping & Pinning – For My Sleepy Nurse 💜</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Rouge+Script&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-  <!-- Your CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1 class="title">Button</h1>
-  <div class="wrapper">
-    <button class="button heart"></button>
-  </div>
+  <div id="floating-layer"></div>
 
-  <!-- GSAP Core -->
-  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-  <!-- GSAP ScrollTrigger -->
-  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <!-- Your JS -->
+  <main class="page">
+    <section class="card">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+
+      <!-- HEADER -->
+      <header class="header">
+        <div class="cap-wrapper">
+          <div class="nurse-cap">
+            <div class="cap-top"></div>
+            <div class="cap-cross">✚</div>
+          </div>
+        </div>
+
+        <div class="header-text">
+          <p class="tiny-label">Capping &amp; Pinning Day</p>
+          <h1 class="title">Congratulations, My Sleepy Nurse 💜</h1>
+          <p class="subtitle">
+            To: <span id="name-display">my honey, my baby</span>
+          </p>
+        </div>
+      </header>
+
+      <div class="divider">
+        <span></span>
+        <i>🩺</i>
+        <span></span>
+      </div>
+
+      <!-- SCRAPBOOK PHOTO SECTION -->
+      <section class="photos big-photo-section">
+        <div class="photo-story">
+          <img src="https://cdn.discordapp.com/attachments/1036647250778148926/1440471076957327430/7c941e25-59a0-47ea-baa9-bc8c0604e6f5.jfif" />
+          <div class="story-text">
+            <h3>My Favorite Face 🥹💜</h3>
+            <p>
+              Every time I see this picture, I remember why I’m lucky…  
+              kasi ikaw yung tao na kaya kong pagmasdan for hours.  
+              Kahit stressed ka, kahit puyat — <strong>IKAW PA RIN YUNG PEACE KO.</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="photo-story">
+          <img src="https://cdn.discordapp.com/attachments/1036647250778148926/1440471079109005395/e0c0032d-63c8-4f4f-9b74-9dffe77af5df.jfif" />
+          <div class="story-text">
+            <h3>The Sleepy Warrior 😭🩺</h3>
+            <p>
+              Kahit antok na antok ka, you still fight.  
+              That’s strength. That’s heart. That’s YOU.  
+              Hindi loud, hindi nagyayabang — pero palaging nandyan.
+            </p>
+            <p class="quote">
+              “Baby, utak ko fried na.”  
+              …pero kahit fried na, lumalaban pa rin. YOU AMAZE ME. 💜
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- OPEN LETTER BUTTON -->
+      <section class="controls">
+        <button id="openLetterBtn" class="btn">Open your love letter 💌</button>
+        <p class="hint">click mo baby… ginawa ko ’to habang miss na miss kita 🤍</p>
+      </section>
+
+      <!-- LETTER CONTENT -->
+      <article id="letter" class="letter">
+        <p class="line">Hi my love, my nurse, my favorite sleepy head on duty. 😌</p>
+
+        <p class="line">Today is your capping and pinning — and all I can think is:</p>
+
+        <div class="letter-photo-frame">
+          <img
+            src="https://cdn.discordapp.com/attachments/1036647250778148926/1440471076957327430/7c941e25-59a0-47ea-baa9-bc8c0604e6f5.jfif"
+          />
+          <p class="photo-caption">Look at her… stats stable, beauty HIGH 😍</p>
+        </div>
+
+        <p class="line">
+          I know how tired you are — 2 hours sleep, 8 hours
+          duty… pero LOOK AT YOU. Still fighting.  
+        </p>
+
+        <div class="letter-photo-frame">
+          <img
+            src="https://cdn.discordapp.com/attachments/1036647250778148926/1440471079109005395/e0c0032d-63c8-4f4f-9b74-9dffe77af5df.jfif"
+          />
+          <p class="photo-caption">The “Baby I’m tired but still pretty” look 😭</p>
+        </div>
+
+        <p class="line">
+          More quizzes, charts, care plans & duties will come —  
+          but through ALL OF IT? <strong>I’ll be here.</strong>
+        </p>
+
+        <p class="line highlight rouge">
+          You are my favorite nurse. My comfort person.  
+          My sleepy warrior, who still chooses to care. 💜
+        </p>
+
+        <p class="line signoff rouge">
+          Congratulations on your capping & pinning, baby.<br>
+          I’m beyond proud of you.<br>
+          – your forever cheerleader 🤍
+        </p>
+      </article>
+
+      <footer class="footer">
+        <p>Today you don’t just wear a cap — <span>you wear a promise to care.</span></p>
+      </footer>
+    </section>
+  </main>
+
   <script src="script.js"></script>
 </body>
 </html>
