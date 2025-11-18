@@ -1,7 +1,7 @@
 // ======== BASIC SETUP ========
 
 // Change this to her name or something like "Ayalisse, my nurse 💜"
-const customName = "my honey, my baby";
+const customName = "Jhasmine, my honey, my baby";
 
 const nameDisplay = document.getElementById("name-display");
 const openLetterBtn = document.getElementById("openLetterBtn");
